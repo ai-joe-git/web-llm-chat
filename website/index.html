@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouclier IA Belge</title>
+  <style>
+    /* General Styles */
+    :root {
+      --bg-color: #f5f7fa;
+      --text-color: #333;
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --button-bg: #007bff;
+      --button-hover: #0056b3;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #f5f7fa;
+      --glass-bg: rgba(0, 0, 0, 0.2);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --button-bg: #0056b3;
+      --button-hover: #003366;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Glass Morphism Effect */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    /* Smooth Transitions */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: var(--button-bg);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: var(--button-hover);
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .service-card {
+      background: var(--glass-bg);
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Dark Mode Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--glass-shadow);
+      transition: background 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--button-hover);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark Mode Toggle Button -->
+  <button class="theme-toggle" id="theme-toggle">
+    🌓
+  </button>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="glass">
+      <h1>Bouclier IA Belge</h1>
+      <p>La Confiance et la Sécurité au Cœur de l'Intelligence Artificielle</p>
+      <button>Découvrez Notre Solution</button>
+    </div>
+  </section>
+
+  <!-- Problem & Solution Section -->
+  <section id="problem-solution">
+    <h2>Les Défis de l'IA : Sécurité, Confidentialité et Conformité</h2>
+    <div class="glass">
+      <p>
+        Les IA génératives actuelles soulèvent des préoccupations majeures en matière de sécurité des données, de respect de la vie privée et de conformité réglementaire. Face à ces défis, <strong>Bouclier IA Belge</strong> propose une solution innovante et sécurisée, entièrement hébergée en Belgique, pour garantir la confiance et la transparence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section id="vision">
+    <h2>Notre Vision</h2>
+    <div class="glass">
+      <p>
+        Nous aspirons à créer un écosystème IA belge de confiance, où l'innovation technologique s'allie à la protection des données et au respect des droits fondamentaux. Notre objectif est de positionner la Belgique comme un leader européen en matière d'IA éthique et souveraine.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Nos Services</h2>
+    <div class="services-grid">
+      <div class="service-card glass">
+        <h3>Chat IA Sécurisé</h3>
+        <p>Des communications chiffrées de bout en bout, conformes aux normes européennes, pour une tranquillité d'esprit totale.</p>
+      </div>
+      <div class="service-card glass">
+        <h3>Conseil en Conformité IA</h3>
+        <p>Notre équipe d'experts vous guide à travers le labyrinthe réglementaire de l'IA, réduisant les risques et optimisant vos processus.</p>
+      </div>
+      <div class="service-card glass">
+        <h3>Formation de Modèles IA</h3>
+        <p>Des modèles IA personnalisés, adaptés à vos besoins spécifiques et conformes à la législation européenne.</p>
+      </div>
+      <div class="service-card glass">
+        <h3>Programmes d'Initiation à l'IA</h3>
+        <p>Formez vos équipes aux enjeux et aux opportunités de l'IA, pour une adoption responsable et éclairée.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section id="technology">
+    <h2>DeepSeek R1 : La Technologie au Cœur du Projet</h2>
+    <div class="glass">
+      <p>
+        <strong>DeepSeek R1</strong> est un modèle IA de pointe, spécialement adapté pour répondre aux exigences du droit européen. Avec une infrastructure optimisée et un hébergement sécurisé en Belgique, nous garantissons une transparence et une auditabilité totales de nos algorithmes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Market Analysis Section -->
+  <section id="market-analysis">
+    <h2>Analyse du Marché</h2>
+    <div class="glass">
+      <p>
+        Le marché de l'IA est en pleine expansion, avec une demande croissante pour des solutions sécurisées et conformes. Les secteurs réglementés, tels que la finance, la santé et le juridique, représentent une opportunité majeure pour <strong>Bouclier IA Belge</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team">
+    <h2>Notre Équipe</h2>
+    <div class="glass">
+      <p>
+        Notre équipe est composée d'experts passionnés, alliant expertise technique et juridique pour offrir une solution IA de confiance. Découvrez les profils de nos membres clés :
+      </p>
+      <ul>
+        <li><strong>Jean Dupont</strong> - CEO & Fondateur</li>
+        <li><strong>Marie Lambert</strong> - Responsable Conformité</li>
+        <li><strong>Luc Moreau</strong> - Ingénieur en IA</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Financial Plan Section -->
+  <section id="financial-plan">
+    <h2>Plan Financier</h2>
+    <div class="glass">
+      <p>
+        Nous recherchons un financement de <strong>840 000 €</strong> pour construire une infrastructure solide et développer notre activité. Notre modèle économique repose sur des abonnements, des services de conseil et des formations, avec un potentiel de croissance et de rentabilité à long terme.
+      </p>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section id="cta">
+    <h2>Investissons Ensemble dans un Avenir Numérique Responsable</h2>
+    <div class="glass">
+      <p>
+        Rejoignez-nous dans cette aventure innovante et ambitieuse. Contactez-nous pour discuter de la manière dont vous pouvez contribuer au succès de <strong>Bouclier IA Belge</strong>.
+      </p>
+      <button>Contactez-Nous</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Bouclier IA Belge. Tous droits réservés.</p>
+  </footer>
+
+  <!-- JavaScript for Dark Mode and Smooth Transitions -->
+  <script>
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.dataset.theme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+      themeToggle.textContent = body.dataset.theme === 'dark' ? '🌞' : '🌓';
+    });
+
+    // Smooth Transitions
+    const fadeIns = document.querySelectorAll('.fade-in');
+
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    fadeIns.forEach(fadeIn => {
+      appearOnScroll.observe(fadeIn);
+    });
+  </script>
+</body>
+</html>
