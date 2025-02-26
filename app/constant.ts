@@ -4,9 +4,9 @@ import { getQuantization, getSize } from "./utils";
 
 export const OWNER = "mlc-ai";
 export const REPO = "web-llm-chat";
-export const WEBLLM_HOME_URL = "https://webllm.mlc.ai";
-export const REPO_URL = `https://github.com/${OWNER}/${REPO}`;
-export const ISSUE_URL = `https://github.com/${OWNER}/${REPO}/issues`;
+export const WEBLLM_HOME_URL = "https://liv-ai.com";
+export const REPO_URL = `https://liv-ai.com`;
+export const ISSUE_URL = `https://liv-ai.com`;
 
 export enum Path {
   Home = "/",
